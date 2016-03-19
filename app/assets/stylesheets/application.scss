@@ -46,7 +46,7 @@
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
-  /*    
+     
     .collapsed{
        .arrow:before{
                  font-family: FontAwesome;
@@ -58,7 +58,7 @@
                  float:right;
             }
      }
-*/
+
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
@@ -169,9 +169,9 @@ body {
 	margin-right: 40px;
 }
 
-
-
-
+.container {
+	max-width: 100%;
+}
 
 /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -460,3 +460,26 @@ label:hover:before {
   font-weight: bold;
 }
 
+
+
+
+//#4f5b69
+.panel-primary .panel-heading{
+	background-color: #2e353d;
+	border-color: #2e353d;
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading div {
+	margin-top: -18px;
+	font-size: 15px;
+}
+.panel-heading div span{
+	margin-left:5px;
+}
+.panel-body{
+	display: none;
+}
