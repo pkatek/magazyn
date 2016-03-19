@@ -17,31 +17,43 @@
 	        <div class="menu-list">
   
 	            <ul id="menu-content" class="menu-content collapse out">
-	                <li>
-	                  <a href="#">
-	                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
-	                  </a>
-	                </li>
+  					<% if current_user %>
+					<li>
+	                 <a herf="#"> <i class="fa fa-dashboard fa-lg"></i>Dashboard
+	                </li></a>
+  					<% else %>
+  					<li>
+  	                  <a>
+  	                  <i class="fa fa-dashboard fa-lg"></i><%= link_to "Dashboard", root_path %>
+  	                  </a>
+  	                </li>
+					<% end %>
+										
+  					<% if current_user %>	
+	                  <li  data-toggle="collapse" data-target="#products" class="collapsed">
+	                    <a href="#"><i class="fa fa-gift fa-lg"></i> Przedmioty <span class="arrow"></span></a>
+	                  </li>
+	                    <ul class="sub-menu collapse" id="products">
+  						  <li><%= link_to "Wszystkie", items_path %></li> 
+  	                      <li><%= link_to "Nowe", destroy_user_session_path, :method => :delete %></li>
+       	                </ul>
+  					<% else %>
 
-	                <li  data-toggle="collapse" data-target="#products" class="collapsed">
-	                  <a href="#"><i class="fa fa-gift fa-lg"></i> Przedmioty <span class="arrow"></span></a>
-	                </li>
-	                <ul class="sub-menu collapse" id="products">
-	                    <li><a href="#">Wszystkie</a></li>
-	                    <li><a href="#">Dodaj</a></li>
-	                </ul>
+					<% end %>
 
-
+  					<% if current_user %>	
 	                <li data-toggle="collapse" data-target="#service" class="collapsed">
 	                  <a href="#"><i class="fa fa-globe fa-lg"></i> Lokalizacje <span class="arrow"></span></a>
 	                </li>  
 	                <ul class="sub-menu collapse" id="service">
-	                  <li>New Service 1</li>
-	                  <li>New Service 2</li>
-	                  <li>New Service 3</li>
+	                  <li>Wszystkie</li>
+	                  <li>Nowa</li>
 	                </ul>
+  					<% else %>
 
+					<% end %>
 
+  					<% if current_user %>	
 	                <li data-toggle="collapse" data-target="#new" class="collapsed">
 	                  <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
 	                </li>
@@ -50,6 +62,9 @@
 	                  <li>New New 2</li>
 	                  <li>New New 3</li>
 	                </ul>
+  					<% else %>
+
+					<% end %>
 					
 	                <li data-toggle="collapse" data-target="#użytkownicy" class="collapsed">
 	                  <a href="#"><i class="fa fa-user fa-lg"></i> Profil <span class="arrow"></span></a>
@@ -63,26 +78,25 @@
   	                  <li><%= link_to "Rejestracja", new_user_registration_path %></li>
 						<% end %>
 	                </ul>
+					
+  					<% if current_user %>	
 	                 <li>
 	                  <a href="#">
 	                  <i class="fa fa-users fa-lg"></i> Użytkownicy
 	                  </a>
 	                </li>
-				
-	                <li>
-	                 <a href="#">
-	                 <i class="fa fa-users fa-lg"></i> Profile
-	                 </a>
-	                 </li>
+  					<% else %>
+
+					<% end %>
 	            </ul>
 	     </div>
 	</div>
 
 	<div class="all">
+		<%= yield %>
 
 	    <p class="notice"><%= notice %></p>
 	    <p class="alert"><%= alert %></p>
-		<%= yield %>
 	</div>
 </body>
 </html>
