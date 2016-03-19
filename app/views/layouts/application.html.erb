@@ -6,14 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
 <body>
 	
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<div class="nav-side-menu">
-	    <div class="brand">ApiMag</div>
+	    <div class="brand">Magazyn</div>
 	    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
 	        <div class="menu-list">
@@ -52,7 +50,19 @@
 	                  <li>New New 2</li>
 	                  <li>New New 3</li>
 	                </ul>
-
+					
+	                <li data-toggle="collapse" data-target="#użytkownicy" class="collapsed">
+	                  <a href="#"><i class="fa fa-user fa-lg"></i> Profil <span class="arrow"></span></a>
+	                </li>
+	                <ul class="sub-menu collapse" id="użytkownicy">
+						<% if current_user %>
+						<li><%= link_to "Ustawienia", edit_user_registration_path %></li> 
+	                  <li><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+					  	<% else %>
+  	                  <li><%= link_to "Zaloguj", new_user_session_path %></li>
+  	                  <li><%= link_to "Rejestracja", new_user_registration_path %></li>
+						<% end %>
+	                </ul>
 	                 <li>
 	                  <a href="#">
 	                  <i class="fa fa-users fa-lg"></i> Użytkownicy
@@ -61,7 +71,7 @@
 				
 	                <li>
 	                 <a href="#">
-	                 <i class="fa fa-user fa-lg"></i> Profile
+	                 <i class="fa fa-users fa-lg"></i> Profile
 	                 </a>
 	                 </li>
 	            </ul>
@@ -69,6 +79,9 @@
 	</div>
 
 	<div class="all">
+
+	    <p class="notice"><%= notice %></p>
+	    <p class="alert"><%= alert %></p>
 		<%= yield %>
 	</div>
 </body>
