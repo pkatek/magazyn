@@ -19,7 +19,7 @@
 	            <ul id="menu-content" class="menu-content collapse out">
   					<% if current_user %>
 					<li>
-	                 <a herf="#"> <i class="fa fa-dashboard fa-lg"></i>Dashboard
+	                 <a> <i class="fa fa-dashboard fa-lg"></i><%= link_to "Dashboard", static_pages_dashboard_path %>
 	                </li></a>
   					<% else %>
   					<li>
@@ -35,7 +35,7 @@
 	                  </li>
 	                    <ul class="sub-menu collapse" id="products">
   						  <li><%= link_to "Wszystkie", items_path %></li> 
-  	                      <li><%= link_to "Nowe", destroy_user_session_path, :method => :delete %></li>
+  	                      <li><%= link_to "Nowe", root_path %></li>
        	                </ul>
   					<% else %>
 
