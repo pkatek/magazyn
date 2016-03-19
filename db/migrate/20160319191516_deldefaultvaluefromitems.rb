@@ -1,5 +1,5 @@
 class Deldefaultvaluefromitems < ActiveRecord::Migration
   def change
-    change_column :items, :sn, :boolean, :default => false
+    change_column :items, :sn, :string, :default => false
   end
 end
