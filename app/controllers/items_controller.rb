@@ -19,7 +19,8 @@ class ItemsController < ApplicationController
       flash[:success] = "Przedmiot dodany!"
       redirect_to :action => 'index'
     else
-       render :action => 'new'
+      flash.now[:alert] = @item.errors.full_messages.join("<br>").html_safe
+      render action: "new"
     end
    
   end

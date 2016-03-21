@@ -483,3 +483,19 @@ label:hover:before {
 .panel-body{
 	display: none;
 }
+
+.noice {
+	font-family: 'Varela Round';
+	font-size: 15px;
+    position: relative;
+	text-align: center;
+    color: #cc6666;
+}
+.alert {
+	font-family: 'Varela Round';
+	font-size: 15px;
+    position: relative;
+	text-align: center;
+    color: #cc6666;
+	  margin-top: -60px;
+}
